@@ -27,7 +27,7 @@ public class UserService {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         SUser sUser =  SUserRepository.findByUserId(userId);
         //call the departmentMicroService
-        Department department = restTemplate.getForObject("http://localhost:9001/departments/"+ sUser.getDepartmentId(), Department.class);
+        Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/"+ sUser.getDepartmentId(), Department.class);
         vo.setSUser(sUser);
         vo.setDepartment(department);
         return vo;
